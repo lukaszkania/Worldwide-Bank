@@ -12,7 +12,7 @@ class BiggestTransaction extends Component {
 
         let MainBiggestTransactionComponentt = this.props.historyOfAllTransactions.length != 0 ? (
             <div>
-                jest coś
+                {this.props.biggestTransaction.transactionId}
             </div>
         ) : (
             <div>

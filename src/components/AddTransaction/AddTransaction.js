@@ -21,10 +21,14 @@ class AddTransaction extends Component {
         event.preventDefault()
         // Creating new transaction variable
         const newTransaction = {
-                transactionId: this.state.transactionId += 1,
+                transactionId: this.state.transactionId + 1,
                 newTransactionTitle: this.state.newTransactionTitle,
                 valueOfNewTransaction: parseFloat(this.state.valueOfNewTransaction)
             }
+        // Increment transaction ID
+        this.setState({
+            transactionId: this.state.transactionId + 1
+        })
         
         // Modifing history of all transactions
         this.props.dispatch({type:ADD_NEW_TRANSACTION_SUCCESS, newTransaction:newTransaction})

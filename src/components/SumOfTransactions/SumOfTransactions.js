@@ -9,7 +9,8 @@ class SumOfTransactions extends Component {
         if (this.props.historyOfAllTransactions.length > 0){
         const allTransactionsValues = this.props.historyOfAllTransactions.map(transaction => {return transaction.valueOfNewTransaction})
         const sumOfAllTransactions = allTransactionsValues.reduce((prevVal, currentVal) => {return prevVal + currentVal})
-        this.props.dispatch({type:GET_SUM_OF_TRANSACTIONS, sumOfAllTransactions:sumOfAllTransactions})
+        const roundedSumOfAllTransactions = Math.floor(sumOfAllTransactions * 100) / 100
+        this.props.dispatch({type:GET_SUM_OF_TRANSACTIONS, sumOfAllTransactions:roundedSumOfAllTransactions})
         }else{
             this.props.dispatch({type:GET_SUM_OF_TRANSACTIONS, sumOfAllTransactions:NO_TRANSACTIONS_WERE_MADE})
             

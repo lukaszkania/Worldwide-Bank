@@ -11,6 +11,10 @@ class HistoryOfTransactions extends Component {
         this.props.dispatch({type:DELETE_TRANSACTION_SUCCESS, indexOfRemovedTransaction: indexOfTransactionToRemove})
     }
 
+    changeFromEuroToPln = amountInEuro => {
+        return Math.floor(amountInEuro * this.props.exchangeValueRate * 100) / 100
+    }
+
     render() { 
         return ( 
             <div>
@@ -18,9 +22,10 @@ class HistoryOfTransactions extends Component {
                 {this.props.historyOfAllTransactions.map(transaction => {
                     return (
                     <div key={transaction.transactionId}>
-                    {transaction.transactionId}
-                    {transaction.newTransactionTitle}
-                    {transaction.valueOfNewTransaction}
+                    Nr transakcji: {transaction.transactionId} <br></br>
+                    Tytuł: {transaction.newTransactionTitle} <br></br>
+                    Kwota: {transaction.valueOfNewTransaction} EURO <br></br>
+                    Kwota: {this.changeFromEuroToPln(transaction.valueOfNewTransaction)} PLN <br></br>
                     <button value={transaction.transactionId} onClick={this.deleteTransaction}>Usuń transakcje</button>
                     </div>
                     )
@@ -32,7 +37,8 @@ class HistoryOfTransactions extends Component {
  
 const mapStateToProps = (state) => {
     return {
-        historyOfAllTransactions: state.historyOfAllTransactions
+        historyOfAllTransactions: state.historyOfAllTransactions,
+        exchangeValueRate: state.exchangeValueRate
     }
 }
 
