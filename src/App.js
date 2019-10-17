@@ -5,6 +5,7 @@ import store from './store';
 import { CHANGE_EXCHANGE_VALUE_RATE } from './constants/ACTION_TYPES';
 import AddTransaction from './components/AddTransaction/AddTransaction';
 import HistoryOfTransactions from './components/HistoryOfTransactions/HistoryOfTransactions';
+import BiggestTransaction from './components/BiggestTransaction/BiggestTransaction';
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <CurrencyConverter />
         <AddTransaction />
         <HistoryOfTransactions />
+        <BiggestTransaction />
       </div>
     </Provider>
   );

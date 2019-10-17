@@ -1,4 +1,4 @@
-import { CHANGE_EXCHANGE_VALUE_RATE, ADD_NEW_TRANSACTION_SUCCESS, DELETE_TRANSACTION_SUCCESS } from "../constants/ACTION_TYPES";
+import { CHANGE_EXCHANGE_VALUE_RATE, ADD_NEW_TRANSACTION_SUCCESS, DELETE_TRANSACTION_SUCCESS, GET_THE_BIGGEST_TRANSACTION } from "../constants/ACTION_TYPES";
 
 const initialState = {
         exchangeValueRate: 4.20,
@@ -27,6 +27,11 @@ function rootReducer(state=initialState, action){
             return {
                 ...state,
                 exchangeValueRate:action.newExchangeValueRate
+            }
+        case GET_THE_BIGGEST_TRANSACTION:
+            return {
+                ...state,
+                biggestTransaction:action.biggestTransaction
             }
         default:
             return state

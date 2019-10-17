@@ -23,7 +23,7 @@ class AddTransaction extends Component {
         const newTransaction = {
                 transactionId: this.state.transactionId += 1,
                 newTransactionTitle: this.state.newTransactionTitle,
-                valueOfNewTransaction: this.state.valueOfNewTransaction
+                valueOfNewTransaction: parseFloat(this.state.valueOfNewTransaction)
             }
         
         // Modifing history of all transactions
