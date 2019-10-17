@@ -5,11 +5,12 @@ import { NO_TRANSACTIONS_WERE_MADE } from '../../constants/VARIABLES';
 
 class SumOfTransactions extends Component {
     state = {  }
+    // Updating sum of all transactions after any change of array of all transactions
     componentDidUpdate(){
         if (this.props.historyOfAllTransactions.length > 0){
-        const allTransactionsValues = this.props.historyOfAllTransactions.map(transaction => {return transaction.valueOfNewTransaction})
-        const sumOfAllTransactions = allTransactionsValues.reduce((prevVal, currentVal) => {return prevVal + currentVal})
-        const roundedSumOfAllTransactions = Math.floor(sumOfAllTransactions * 100) / 100
+        const allTransactionsValues = this.props.historyOfAllTransactions.map(transaction => {return transaction.valueOfNewTransaction}) // Getting array of all values of transactions that were made
+        const sumOfAllTransactions = allTransactionsValues.reduce((prevVal, currentVal) => {return prevVal + currentVal}) // Getting sum of made array
+        const roundedSumOfAllTransactions = Math.floor(sumOfAllTransactions * 100) / 100 // Rounding sum to two decimal places and down
         this.props.dispatch({type:GET_SUM_OF_TRANSACTIONS, sumOfAllTransactions:roundedSumOfAllTransactions})
         }else{
             this.props.dispatch({type:GET_SUM_OF_TRANSACTIONS, sumOfAllTransactions:NO_TRANSACTIONS_WERE_MADE})
@@ -19,7 +20,14 @@ class SumOfTransactions extends Component {
     render() { 
         return ( 
             <div>
-                Sum of transactions: {this.props.sumOfAllTransactions}
+                {this.props.sumOfAllTransactions === 0 ? (
+                <div>
+                    {NO_TRANSACTIONS_WERE_MADE}
+                </div>
+                ):(
+                <div>
+                    Suma wszystkich wykonanych transakcji: {this.props.sumOfAllTransactions}
+                </div>)}
             </div>
          );
     }

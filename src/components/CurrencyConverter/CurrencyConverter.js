@@ -7,6 +7,7 @@ class CurrencyConverter extends Component {
         newExchangeValueRate: 0
     }
 
+    // Handling change of input and updating local state
     onChange = (event) => {
         const target = event.target;
         this.setState({
@@ -14,6 +15,7 @@ class CurrencyConverter extends Component {
         })
     }
 
+    // Handling button confirm and updating global state
     changeExchangeValue = (event) => {
         this.props.dispatch({type:CHANGE_EXCHANGE_VALUE_RATE, newExchangeValueRate:this.state.newExchangeValueRate})
         event.preventDefault()
@@ -22,7 +24,6 @@ class CurrencyConverter extends Component {
     render() { 
         return ( 
             <div>
-                CurrencyConverterasdasd
                 <div>
                     Aktualny kurs Euro: 1 EUR = {this.props.exchangeValueRate} PLN
                 </div>

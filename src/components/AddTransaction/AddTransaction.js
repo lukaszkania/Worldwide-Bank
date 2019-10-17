@@ -38,7 +38,7 @@ class AddTransaction extends Component {
     render() { 
         return ( 
             <div>
-                AddTransaction
+                Wykonaj transakcje:
                 <form onSubmit={this.onSubmit}>
                     <input onChange={this.onChange} name="newTransactionTitle" type="text" placeholder="Nazwa transakcji"></input>
                     <input onChange={this.onChange} name="valueOfNewTransaction" type="number" min="0.01" step="0.01" value={this.props.exchangeValueRate} placeholder="Nowa transakcja"></input>

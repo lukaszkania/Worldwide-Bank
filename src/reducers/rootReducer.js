@@ -2,7 +2,7 @@ import { CHANGE_EXCHANGE_VALUE_RATE, ADD_NEW_TRANSACTION_SUCCESS, DELETE_TRANSAC
 import { NO_TRANSACTIONS_WERE_MADE } from "../constants/VARIABLES";
 
 const initialState = {
-        exchangeValueRate: 4.20,
+        exchangeValueRate: 1,
         historyOfAllTransactions: [],
         sumOfAllTransactions: NO_TRANSACTIONS_WERE_MADE,
         biggestTransaction: {},
