@@ -1,21 +1,36 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
+import { CHANGE_EXCHANGE_VALUE_RATE } from '../../constants/ACTION_TYPES';
 
 class CurrencyConverter extends Component {
-    state = {}
-    changeExchangeValue = () => {}
+    state = {
+        newExchangeValueRate: 0
+    }
+
+    onChange = (event) => {
+        const target = event.target;
+        this.setState({
+            newExchangeValueRate: parseFloat(target.value),
+        })
+    }
+
+    changeExchangeValue = (event) => {
+        this.props.dispatch({type:CHANGE_EXCHANGE_VALUE_RATE, newExchangeValueRate:this.state.newExchangeValueRate})
+        event.preventDefault()
+    }
+
     render() { 
         return ( 
             <div>
                 CurrencyConverterasdasd
                 <div>
-                    Aktualny kurs Euro: 1 EUR = (euroToZlotyExchangeRate) 
+                    Aktualny kurs Euro: 1 EUR = {this.props.exchangeValueRate} PLN
                 </div>
                 <div>
                     <form>
-                        Zmień kurs Euro: {this.props.exchangeValueRate}
-                        <input type="number" min="0.01" step="0.01" value={this.props.exchangeValueRate} placeholder="$"></input>
-                        <button type="submit">Potwierdź</button>
+                        Zmień kurs Euro: 
+                        <input onChange={this.onChange} type="number" name="newExchangeValueRate" min="0.01" step="0.01" placeholder="$"></input>
+                        <button onClick={this.changeExchangeValue} type="submit">Potwierdź</button>
                     </form>
                 </div>
                 

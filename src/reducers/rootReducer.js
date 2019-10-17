@@ -23,6 +23,11 @@ function rootReducer(state=initialState, action){
                 ...state.historyOfAllTransactions.slice(action.indexOfRemovedTransaction + 1)
                 ]
             }
+        case CHANGE_EXCHANGE_VALUE_RATE:
+            return {
+                ...state,
+                exchangeValueRate:action.newExchangeValueRate
+            }
         default:
             return state
     }
