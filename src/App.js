@@ -20,6 +20,7 @@ Worldwide Bank Account
 </section>
 <section>
   <HistoryOfTransactions />
+  <SumOfTransactions />
   <BiggestTransaction />
 </section>
 <footer>
