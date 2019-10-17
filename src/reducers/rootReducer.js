@@ -1,9 +1,10 @@
 import { CHANGE_EXCHANGE_VALUE_RATE, ADD_NEW_TRANSACTION_SUCCESS, DELETE_TRANSACTION_SUCCESS, GET_THE_BIGGEST_TRANSACTION, GET_SUM_OF_TRANSACTIONS } from "../constants/ACTION_TYPES";
+import { NO_TRANSACTIONS_WERE_MADE } from "../constants/VARIABLES";
 
 const initialState = {
         exchangeValueRate: 4.20,
         historyOfAllTransactions: [],
-        sumOfAllTransactions: 0,
+        sumOfAllTransactions: NO_TRANSACTIONS_WERE_MADE,
         biggestTransaction: {},
         actualRateInputed: 0
 }
