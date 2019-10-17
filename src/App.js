@@ -11,11 +11,20 @@ function App() {
   return (
     <Provider store={store}>
       <div className="App">
-        <CurrencyConverter />
-        <AddTransaction />
-        <HistoryOfTransactions />
-        <BiggestTransaction />
-        <SumOfTransactions />
+<header>
+Worldwide Bank Account
+</header>
+<section>
+  <CurrencyConverter />
+  <AddTransaction />
+</section>
+<section>
+  <HistoryOfTransactions />
+  <BiggestTransaction />
+</section>
+<footer>
+&copy; All rights reserved 2019
+</footer>
       </div>
     </Provider>
   );

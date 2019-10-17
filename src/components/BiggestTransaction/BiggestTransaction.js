@@ -41,9 +41,9 @@ class BiggestTransaction extends Component {
         )
 
         return ( 
-            <div>
-                {MainBiggestTransactionComponentt}
-            </div>
+        
+            MainBiggestTransactionComponentt
+
          );
     }
 }
