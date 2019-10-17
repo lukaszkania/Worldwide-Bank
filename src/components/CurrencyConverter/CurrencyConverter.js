@@ -10,6 +10,7 @@ class CurrencyConverter extends Component {
     // Handling change of input and updating local state
     onChange = (event) => {
         const target = event.target;
+        this.replaceCommaWithPeriod(target.value)
         this.setState({
             newExchangeValueRate: parseFloat(target.value),
         })
@@ -30,7 +31,7 @@ class CurrencyConverter extends Component {
                 <div>
                     <form>
                         Zmień kurs Euro: 
-                        <input onChange={this.onChange} type="number" name="newExchangeValueRate" min="0.01" step="0.01" placeholder="$"></input>
+                        <input onChange={this.onChange} type="number" name="newExchangeValueRate" min="0.01" step="0.01" defaultValue={this.props.exchangeValueRate} required></input>
                         <button onClick={this.changeExchangeValue} type="submit">Potwierdź</button>
                     </form>
                 </div>
