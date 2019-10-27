@@ -6,7 +6,6 @@ const initialState = {
         historyOfAllTransactions: [],
         sumOfAllTransactions: NO_TRANSACTIONS_WERE_MADE,
         biggestTransaction: {},
-        actualRateInputed: 0
 }
 
 function rootReducer(state=initialState, action){
