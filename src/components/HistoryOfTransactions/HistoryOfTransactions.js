@@ -15,12 +15,23 @@ class HistoryOfTransactions extends Component {
         return Math.floor(amountInEuro * this.props.exchangeValueRate * 100) / 100
     }
 
+    // Sorting array by transaction id / date
+    sortArrayByTransactionId = ( a, b ) => {
+        if ( a.transactionId > b.transactionId ){
+          return -1;
+        }
+        if ( a.transactionId < b.transactionId ){
+          return 1;
+        }
+        return 0;
+      }
+
     render() { 
         return ( 
             <div>
                 Historia transakcji
                 {/* DISPLAYING ALL TRANSACTIONS THAT WERE MADE */}
-                {this.props.historyOfAllTransactions.map(transaction => {
+                {this.props.historyOfAllTransactions.sort(this.sortArrayByTransactionId).map(transaction => {
                     return (
                     <div key={transaction.transactionId}>
                     Nr transakcji: {transaction.transactionId} <br></br>
