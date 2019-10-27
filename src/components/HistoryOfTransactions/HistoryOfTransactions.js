@@ -3,8 +3,6 @@ import {connect} from 'react-redux';
 import { DELETE_TRANSACTION_SUCCESS } from '../../constants/ACTION_TYPES';
 
 class HistoryOfTransactions extends Component {
-    state = {  }
-
     // Handling button click and removing transaction
     deleteTransaction = (event) => {
         const transactionToRemove = (this.props.historyOfAllTransactions.filter(transaction => transaction.transactionId === parseFloat(event.target.value)))[0]

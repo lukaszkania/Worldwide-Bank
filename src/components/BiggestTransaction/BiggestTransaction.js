@@ -4,7 +4,6 @@ import { GET_THE_BIGGEST_TRANSACTION } from '../../constants/ACTION_TYPES';
 import { NO_TRANSACTIONS_WERE_MADE } from '../../constants/VARIABLES';
 
 class BiggestTransaction extends Component {
-    state = {  }
     // Update biggestTransaction variable if value of new transaction that was added is bigger than actual 
     componentDidUpdate(){
         if(this.props.historyOfAllTransactions.length > 0){

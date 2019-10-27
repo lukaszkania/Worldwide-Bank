@@ -4,7 +4,6 @@ import { GET_SUM_OF_TRANSACTIONS } from '../../constants/ACTION_TYPES';
 import { NO_TRANSACTIONS_WERE_MADE } from '../../constants/VARIABLES';
 
 class SumOfTransactions extends Component {
-    state = {  }
     // Updating sum of all transactions after any change of array of all transactions
     componentDidUpdate(){
         if (this.props.historyOfAllTransactions.length > 0){
