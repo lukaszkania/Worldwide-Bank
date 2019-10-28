@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { DELETE_TRANSACTION_SUCCESS } from '../../constants/ACTION_TYPES';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 class HistoryOfTransactions extends Component {
     // Handling button click and removing transaction
@@ -28,21 +30,24 @@ class HistoryOfTransactions extends Component {
 
     render() { 
         return ( 
-            <div>
+            <Paper>
+                <br/>
+                <Typography variant="h4" component="h2">
                 Historia transakcji
+                </Typography>
                 {/* DISPLAYING ALL TRANSACTIONS THAT WERE MADE */}
                 {this.props.historyOfAllTransactions.sort(this.sortArrayByTransactionId).map(transaction => {
                     return (
-                    <div key={transaction.transactionId}>
+                    <Typography key={transaction.transactionId} variant="h6" component="h5">
                     Nr transakcji: {transaction.transactionId} <br></br>
                     Tytuł: {transaction.newTransactionTitle} <br></br>
-                    Kwota: {transaction.valueOfNewTransaction} EURO <br></br>
-                    Kwota: {this.changeFromEuroToPln(transaction.valueOfNewTransaction)} PLN <br></br>
-                    <button value={transaction.transactionId} onClick={this.deleteTransaction}>Usuń transakcje</button>
-                    </div>
+                    Kwota w euro: {transaction.valueOfNewTransaction} EURO <br></br>
+                    Kwota w zł: {this.changeFromEuroToPln(transaction.valueOfNewTransaction)} PLN <br></br>
+                    <button type="submit" value={transaction.transactionId} onClick={this.deleteTransaction}>Usuń transakcje</button>
+                    </Typography>
                     )
                 })}
-            </div>
+            </Paper>
          );
     }
 }

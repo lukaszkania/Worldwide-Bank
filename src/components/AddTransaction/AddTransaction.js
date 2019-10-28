@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { ADD_NEW_TRANSACTION_SUCCESS } from '../../constants/ACTION_TYPES';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
 
 class AddTransaction extends Component {
     state = { 
@@ -36,16 +39,24 @@ class AddTransaction extends Component {
     }
 
     render() { 
-        return ( 
-            <div>
+        return (
+
+            <Paper>
+                <br/>
+                <Typography variant="h5" component="h1">
                 Wykonaj transakcje:
+                </Typography>
                 <form onSubmit={this.onSubmit}>
                     <input onChange={this.onChange} name="newTransactionTitle" type="text" placeholder="Nazwa transakcji" required></input>
-                    <input onChange={this.onChange} name="valueOfNewTransaction" type="number" min="0.01" step="0.01" value={this.props.exchangeValueRate} placeholder="Nowa transakcja" required></input>
-                    <button type="submit">Dodaj</button>
+                    <input onChange={this.onChange} name="valueOfNewTransaction" type="number" min="0.01" step="0.01" value={this.props.exchangeValueRate} placeholder="Kwota transakcji" required></input>
+                    <br/>
+                    <br/>
+                    <Button type="submit" variant="contained" color="primary" >
+                        Dodaj transakcje
+                    </Button>
                 </form>
-
-            </div>
+            </Paper>
+        
          );
     }
 }

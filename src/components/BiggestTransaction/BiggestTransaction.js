@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect} from "react-redux";
 import { GET_THE_BIGGEST_TRANSACTION } from '../../constants/ACTION_TYPES';
 import { NO_TRANSACTIONS_WERE_MADE } from '../../constants/VARIABLES';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 class BiggestTransaction extends Component {
     // Update biggestTransaction variable if value of new transaction that was added is bigger than actual 
@@ -26,17 +28,21 @@ class BiggestTransaction extends Component {
         // Our main component which can change when new transactions will be added or the old ones will be removed
         let MainBiggestTransactionComponentt = this.props.historyOfAllTransactions.length > 0 ? (
             
-            <div>
-                Największa transakcja:
-                Nr transakcji: {this.props.biggestTransaction.transactionId}
-                Tytuł transakcji: {this.props.biggestTransaction.newTransactionTitle}
-                Kwota transakcji: {this.props.biggestTransaction.valueOfNewTransaction} EURO
-                Kwota transakcji: {this.changeFromEuroToPln(this.props.biggestTransaction.valueOfNewTransaction)} PLN
-            </div>
+            <Paper>
+                <Typography variant="h6" component="h5">
+                Największa transakcja: <br/>
+                Nr transakcji: {this.props.biggestTransaction.transactionId}<br/>
+                Tytuł transakcji: {this.props.biggestTransaction.newTransactionTitle}<br/>
+                Kwota transakcji: {this.props.biggestTransaction.valueOfNewTransaction} EURO<br/>
+                Kwota transakcji: {this.changeFromEuroToPln(this.props.biggestTransaction.valueOfNewTransaction)} PLN<br/>
+                </Typography>
+            </Paper>
         ) : (
-            <div>
+            <Paper>
+            <Typography variant="h6" component="h5">
             Nie znaleziono największej transakcji...
-            </div>
+            </Typography>
+            </Paper>
         )
 
         return ( 

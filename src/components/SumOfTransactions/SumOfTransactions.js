@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import {connect} from 'react-redux';
 import { GET_SUM_OF_TRANSACTIONS } from '../../constants/ACTION_TYPES';
 import { NO_TRANSACTIONS_WERE_MADE } from '../../constants/VARIABLES';
+import Paper from '@material-ui/core/Paper';
+import Typography from '@material-ui/core/Typography';
 
 class SumOfTransactions extends Component {
     // Updating sum of all transactions after any change of array of all transactions
@@ -18,7 +20,8 @@ class SumOfTransactions extends Component {
     }
     render() { 
         return ( 
-            <div>
+            <Paper>
+                <Typography variant="h6" component="h5">
                 {this.props.sumOfAllTransactions === 0 ? (
                 <div>
                     {NO_TRANSACTIONS_WERE_MADE}
@@ -27,7 +30,8 @@ class SumOfTransactions extends Component {
                 <div>
                     Suma wszystkich wykonanych transakcji: {this.props.sumOfAllTransactions}
                 </div>)}
-            </div>
+                </Typography>
+                </Paper>
          );
     }
 }
